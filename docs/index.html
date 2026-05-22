@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIM Daily - 建筑科技与BIM资讯每日汇总</title>
+    <meta name="description" content="每日精选建筑科技、BIM、智慧建造、数字孪生等领域最新资讯">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title">
+                    <span class="icon">🏗️</span> BIM Daily
+                </h1>
+                <p class="site-subtitle">建筑科技与BIM资讯每日汇总</p>
+            </div>
+            <nav class="tag-filter" id="tagFilter">
+                <button class="tag-btn active" data-tag="all">全部</button>
+                <button class="tag-btn" data-tag="BIM">BIM</button>
+                <button class="tag-btn" data-tag="数字孪生">数字孪生</button>
+                <button class="tag-btn" data-tag="智慧建造">智慧建造</button>
+                <button class="tag-btn" data-tag="AI">AI</button>
+                <button class="tag-btn" data-tag="政策">政策</button>
+                <button class="tag-btn" data-tag="软件">软件</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="newsFeed" class="news-feed">
+            <!-- 动态渲染内容 -->
+        </div>
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>加载资讯中...</p>
+        </div>
+        <div id="noData" class="no-data" style="display:none;">
+            <p>暂无该分类的资讯</p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>BIM Daily &copy; 2025 | 每日自动汇总建筑科技领域最新资讯</p>
+            <p class="footer-note">数据来源于公开网络，仅供学习参考</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

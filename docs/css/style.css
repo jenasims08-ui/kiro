@@ -1,0 +1,327 @@
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #1a73e8;
+    --primary-light: #e8f0fe;
+    --bg: #f8f9fa;
+    --surface: #ffffff;
+    --text: #202124;
+    --text-secondary: #5f6368;
+    --border: #e0e0e0;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-hover: 0 4px 12px rgba(0,0,0,0.1);
+    --radius: 12px;
+    --tag-bim: #1a73e8;
+    --tag-digital-twin: #9c27b0;
+    --tag-smart: #00897b;
+    --tag-ai: #e91e63;
+    --tag-policy: #ff6f00;
+    --tag-software: #43a047;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== Header ===== */
+.site-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 0 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.95);
+}
+
+.header-content {
+    margin-bottom: 16px;
+}
+
+.site-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.site-title .icon {
+    font-size: 32px;
+}
+
+.site-subtitle {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+/* ===== Tag Filter ===== */
+.tag-filter {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tag-btn {
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--surface);
+    color: var(--text-secondary);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.tag-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.tag-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* ===== News Feed ===== */
+.news-feed {
+    padding: 24px 0;
+}
+
+.day-section {
+    margin-bottom: 32px;
+}
+
+.day-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--primary);
+}
+
+.day-date {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.day-count {
+    font-size: 12px;
+    background: var(--primary-light);
+    color: var(--primary);
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+/* ===== News Card ===== */
+.news-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    transition: all 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+}
+
+.news-card:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.news-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.news-title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--text);
+    flex: 1;
+}
+
+.news-card:hover .news-title {
+    color: var(--primary);
+}
+
+.news-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.news-source {
+    font-size: 12px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.news-source::before {
+    content: "📰";
+    font-size: 11px;
+}
+
+.news-time {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.news-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.news-tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.news-tag[data-tag="BIM"] {
+    background: #e8f0fe;
+    color: var(--tag-bim);
+}
+
+.news-tag[data-tag="数字孪生"] {
+    background: #f3e5f5;
+    color: var(--tag-digital-twin);
+}
+
+.news-tag[data-tag="智慧建造"] {
+    background: #e0f2f1;
+    color: var(--tag-smart);
+}
+
+.news-tag[data-tag="AI"] {
+    background: #fce4ec;
+    color: var(--tag-ai);
+}
+
+.news-tag[data-tag="政策"] {
+    background: #fff3e0;
+    color: var(--tag-policy);
+}
+
+.news-tag[data-tag="软件"] {
+    background: #e8f5e9;
+    color: var(--tag-software);
+}
+
+.news-summary {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ===== Loading & Empty State ===== */
+.loading {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+}
+
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 12px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.no-data {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+    text-align: center;
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.footer-note {
+    margin-top: 4px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .site-title {
+        font-size: 22px;
+    }
+
+    .site-title .icon {
+        font-size: 26px;
+    }
+
+    .news-card {
+        padding: 14px 16px;
+    }
+
+    .news-title {
+        font-size: 15px;
+    }
+
+    .tag-filter {
+        gap: 6px;
+    }
+
+    .tag-btn {
+        padding: 5px 12px;
+        font-size: 12px;
+    }
+}
