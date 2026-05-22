@@ -1,0 +1,45 @@
+{
+  "date": "2025-05-21",
+  "articles": [
+    {
+      "title": "广联达发布2025年Q1财报：BIM+AI业务收入同比增长45%",
+      "url": "https://example.com/glodon-q1",
+      "source": "证券时报",
+      "summary": "广联达2025年一季度财报显示，BIM与AI融合业务表现强劲，数字施工管理平台用户数突破10万，海外市场拓展顺利。",
+      "tags": ["BIM", "AI"],
+      "time": "08:30"
+    },
+    {
+      "title": "新加坡BCA发布建筑业AI应用白皮书",
+      "url": "https://example.com/singapore-bca-ai",
+      "source": "BCA Singapore",
+      "summary": "新加坡建设局(BCA)发布建筑业AI应用白皮书，概述AI在设计优化、施工安全监测、能耗预测等领域的最佳实践案例。",
+      "tags": ["AI", "政策"],
+      "time": "10:00"
+    },
+    {
+      "title": "腾讯云发布智慧建筑解决方案，集成BIM+IoT+AI三位一体",
+      "url": "https://example.com/tencent-smart-building",
+      "source": "腾讯云官方",
+      "summary": "腾讯云推出新一代智慧建筑解决方案，将BIM模型、物联网传感和AI算法深度融合，支持建筑全生命周期的智能化管理。",
+      "tags": ["智慧建造", "AI", "数字孪生"],
+      "time": "11:30"
+    },
+    {
+      "title": "ISO 19650系列标准中文版正式出版发行",
+      "url": "https://example.com/iso19650-chinese",
+      "source": "中国标准出版社",
+      "summary": "BIM国际标准ISO 19650系列中文版正式出版，涵盖信息管理的组织与数字化框架，为国内BIM实施提供标准化指引。",
+      "tags": ["BIM", "政策"],
+      "time": "14:00"
+    },
+    {
+      "title": "Unity推出建筑可视化实时渲染引擎AEC Pro版",
+      "url": "https://example.com/unity-aec-pro",
+      "source": "Unity Blog",
+      "summary": "Unity为建筑行业推出专业版实时渲染引擎，支持直接导入Revit和IFC模型，提供影视级实时可视化和VR沉浸式体验。",
+      "tags": ["软件", "BIM"],
+      "time": "15:45"
+    }
+  ]
+}

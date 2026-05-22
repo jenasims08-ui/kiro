@@ -1,0 +1,14 @@
+{
+  "name": "bim-daily-scripts",
+  "version": "1.0.0",
+  "description": "BIM Daily news fetching scripts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fetch": "node fetch-news.js",
+    "update-index": "node update-index.js"
+  },
+  "dependencies": {
+    "openai": "^4.50.0"
+  }
+}
