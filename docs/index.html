@@ -130,11 +130,33 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+.loading {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+}
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 12px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
 .no-data {
     text-align: center;
     padding: 60px 20px;
     color: var(--text-secondary);
     font-size: 15px;
+}
+.last-updated {
+    text-align: center;
+    padding: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    opacity: 0.7;
 }
 .site-footer {
     text-align: center;
@@ -160,7 +182,7 @@ body {
                 <h1 class="site-title">
                     <span class="icon">🏗️</span> BIM Daily
                 </h1>
-                <p class="site-subtitle">建筑科技与BIM资讯每日汇总</p>
+                <p class="site-subtitle">建筑科技与BIM资讯每日汇总 · 每天自动更新</p>
             </div>
             <nav class="tag-filter" id="tagFilter">
                 <button class="tag-btn active" data-tag="all">全部</button>
@@ -175,7 +197,12 @@ body {
     </header>
 
     <main class="container">
+        <div id="lastUpdated" class="last-updated"></div>
         <div id="newsFeed" class="news-feed"></div>
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>正在加载最新资讯...</p>
+        </div>
         <div id="noData" class="no-data" style="display:none;">
             <p>暂无该分类的资讯</p>
         </div>
@@ -183,111 +210,153 @@ body {
 
     <footer class="site-footer">
         <div class="container">
-            <p>BIM Daily &copy; 2025-2026 | 每日自动汇总建筑科技领域最新资讯</p>
-            <p class="footer-note">数据来源于公开网络，仅供学习参考</p>
+            <p>BIM Daily &copy; 2026 | 每日自动汇总建筑科技领域最新资讯</p>
+            <p class="footer-note">数据来源于 Google News RSS，每天北京时间8:00自动更新</p>
         </div>
     </footer>
 
     <script>
-    const DATA = [
-      {
-        "date": "2026-05-22",
-        "articles": [
-          {"title":"AEC Magazine: Agentic BIM缺失的基础设施——自主设计的未来","url":"https://aecmag.com/ai/agentic-bims-missing-infrastructure/","source":"AEC Magazine","summary":"AEC Magazine深度分析Agentic BIM（代理式BIM）从建模到自动化执行的转变，探讨BIM平台如何管理委托权限而非仅仅管理几何体。","tags":["BIM","AI"],"time":"09:00"},
-          {"title":"英国学者呼吁建立建筑行业AI使用的伦理治理框架","url":"https://www.pbctoday.co.uk/news/digital-construction-news/ethical-governance-artificial-intelligence-use-in-uk-aec-sector/162259/","source":"PBC Today","summary":"英国研究者发起新项目，旨在绘制英国AEC行业AI使用的伦理治理图谱，邀请从业者参与，推动负责任的AI应用标准制定。","tags":["AI","政策"],"time":"10:30"},
-          {"title":"学者推动AI与数字孪生技术应用于结构安全系统","url":"https://guardian.ng/news/don-pushes-for-ai-digital-twins-in-future-structural-safety-systems/","source":"The Guardian Nigeria","summary":"研究者提出将数字孪生（建筑虚拟副本）用于全生命周期的结构安全监测，AI可以在故障发生前触发维护预警。","tags":["数字孪生","AI"],"time":"11:00"},
-          {"title":"高精度零件修复技术助力更精确的数字孪生模型建立","url":"https://construction.einnews.com/pr_news/914060543/leveraging-high-precision-component-repair-to-enable-more-accurate-digital-twin-models","source":"EIN Construction News","summary":"全球数字孪生市场预计2026年达494.7亿美元。使用数字孪生的企业报告非计划停机减少65%，预测性维护成本节约79%。","tags":["数字孪生","智慧建造"],"time":"14:00"},
-          {"title":"BIM Chapters：Revit 2027 MCP公开服务器技术预览——AI能力首次进入Revit","url":"https://bimchapters.blogspot.com/","source":"BIM Chapters","summary":"Autodesk本周宣布Revit 2027首次通过Autodesk Assistant引入AI能力，同时发布Revit MCP公开服务器技术预览，引发BIM工作流变革讨论。","tags":["BIM","AI","软件"],"time":"16:00"},
-          {"title":"新华社：重庆「山城」智慧工地展示数字化与绿色建造融合","url":"http://www.news.cn/english/20260511/347887fc86454ca1a43f5fe718ba3615/c.html","source":"新华社","summary":"重庆梁平区无人机制造产业园智慧工地亮相，展示建筑施工中数字化、智能化和绿色低碳发展的融合应用。","tags":["智慧建造"],"time":"17:00"}
-        ]
-      },
-      {
-        "date": "2026-05-21",
-        "articles": [
-          {"title":"BIMcollab统一平台重大更新：CDE与模型协调整合为一","url":"https://helpcenter.bimcollab.com/en/articles/326485-release-notes","source":"BIMcollab","summary":"BIMcollab发布重大平台更新，将文档管理(CDE)和模型协调(MQA)统一为一体化平台，推出Basic、Advanced和Enterprise三个层级。","tags":["BIM","软件"],"time":"09:00"},
-          {"title":"AEC Magazine 2026年5/6月刊：建筑施工新技术与代理式BIM工作流","url":"https://aecmag.com/technology/aec-magazine-may-june-2026/","source":"AEC Magazine","summary":"最新一期AEC Magazine深入探讨施工新技术、MEP设计自动化，以及代理式BIM工作流的障碍与机遇，预告NXT BLD 2026十周年大会。","tags":["BIM","AI"],"time":"10:00"},
-          {"title":"ISO 19650标准2026年重大修订：BIM正在被「信息管理」取代？","url":"https://rebim.io/iso-19650-changes-2026/","source":"reBIM","summary":"ISO 19650第1/2/3部分草案修订于2026年发布公众咨询，这是BIM成为主流以来数字建造标准最重大的变化，术语和流程将统一为9步信息管理体系。","tags":["BIM","政策"],"time":"11:30"},
-          {"title":"Trimble发布2026版Tekla软件：AI驱动BIM工程与施工生产力提升","url":"https://news.trimble.com/Trimble-Unveils-2026-Tekla-Software-Accelerating-BIM-Engineering-and-Construction-Productivity-Through-Streamlined-Workflows-and-AI","source":"Trimble","summary":"Trimble发布2026版Tekla BIM软件，为结构工程和钢构制造管理带来数据驱动工作流，通过AI连接设计与施工环节。","tags":["BIM","软件","AI"],"time":"13:00"},
-          {"title":"Autodesk Revit 2027正式发布：首次引入AI Assistant与MCP技术","url":"https://www.autodesk.com/blogs/aec/2026/04/07/whats-new-in-revit-2027/","source":"Autodesk AEC Blog","summary":"Revit 2027将Autodesk AI引入建模环境，支持自然语言交互、自动生成文档步骤和触发建模操作，同时通过云端连接工作流。","tags":["BIM","软件","AI"],"time":"14:30"},
-          {"title":"NXT BLD 2026大会预告：自主设计成为核心主题","url":"https://aecmag.com/nxt-bld/11-themes-for-nxt-bld-2026/","source":"AEC Magazine","summary":"NXT BLD 2026十周年大会将首次汇聚全球自主MEP和结构设计领域关键创新者，自主设计成为会议工程和施工主线的核心议题。","tags":["AI","BIM"],"time":"16:00"},
-          {"title":"Virginia Tech开发「Mario」机器人与无人机系统用于工地监测","url":"https://roboticsandautomationnews.com/2026/03/17/robots-and-ai-are-tackling-some-of-the-biggest-challenges-in-construction/99811/","source":"Robotics & Automation News","summary":"Virginia Tech与Procon Consulting合作开发机器人+无人机+AI感知+计算机视觉协同团队，实现施工现场持续远程监控。","tags":["智慧建造","AI"],"time":"17:00"}
-        ]
-      }
-    ];
+    (function() {
+        'use strict';
 
-    let currentTag = 'all';
-    const newsFeed = document.getElementById('newsFeed');
-    const tagFilter = document.getElementById('tagFilter');
-    const noData = document.getElementById('noData');
+        const newsFeed = document.getElementById('newsFeed');
+        const loading = document.getElementById('loading');
+        const noData = document.getElementById('noData');
+        const tagFilter = document.getElementById('tagFilter');
+        const lastUpdatedEl = document.getElementById('lastUpdated');
 
-    function formatDate(dateStr) {
-        const date = new Date(dateStr + 'T00:00:00');
-        const today = new Date(); today.setHours(0,0,0,0);
-        const diffDays = Math.floor((today - date) / (1000*60*60*24));
-        const weekdays = ['周日','周一','周二','周三','周四','周五','周六'];
-        const month = date.getMonth() + 1;
-        const day = date.getDate();
-        let label = `${month}月${day}日 ${weekdays[date.getDay()]}`;
-        if (diffDays === 0) label = '今天 · ' + label;
-        else if (diffDays === 1) label = '昨天 · ' + label;
-        return label;
-    }
+        let allData = [];
+        let currentTag = 'all';
 
-    function escapeHtml(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    }
+        // 加载数据：先尝试从 data/ 目录加载JSON，失败则用内嵌备用数据
+        async function loadData() {
+            try {
+                // 尝试加载索引文件
+                const indexResp = await fetch('data/index.json');
+                if (!indexResp.ok) throw new Error('No index');
+                const index = await indexResp.json();
 
-    function renderNews(filterTag) {
-        newsFeed.innerHTML = '';
-        let hasContent = false;
+                if (index.lastUpdated) {
+                    const d = new Date(index.lastUpdated);
+                    lastUpdatedEl.textContent = `最后更新: ${d.toLocaleDateString('zh-CN')} ${d.toLocaleTimeString('zh-CN', {hour:'2-digit', minute:'2-digit'})}`;
+                }
 
-        for (const day of DATA) {
-            let articles = day.articles;
-            if (filterTag && filterTag !== 'all') {
-                articles = articles.filter(a => a.tags.includes(filterTag));
+                // 加载每天的数据（最多7天）
+                const results = [];
+                const datesToLoad = (index.dates || []).slice(0, 7);
+
+                for (const date of datesToLoad) {
+                    try {
+                        const resp = await fetch(`data/${date}.json`);
+                        if (resp.ok) {
+                            const data = await resp.json();
+                            results.push(data);
+                        }
+                    } catch (e) { /* skip */ }
+                }
+
+                if (results.length > 0) return results;
+                throw new Error('No data files loaded');
+            } catch (e) {
+                // 如果外部数据加载失败，使用备用内嵌数据
+                console.log('Using fallback data:', e.message);
+                return getFallbackData();
             }
-            if (articles.length === 0) continue;
-            hasContent = true;
-
-            const section = document.createElement('div');
-            section.className = 'day-section';
-            section.innerHTML = `<div class="day-header"><span class="day-date">${formatDate(day.date)}</span><span class="day-count">${articles.length} 条资讯</span></div>`;
-
-            for (const article of articles) {
-                const card = document.createElement('a');
-                card.className = 'news-card';
-                card.href = article.url;
-                card.target = '_blank';
-                card.rel = 'noopener noreferrer';
-                const tagsHtml = article.tags.map(t => `<span class="news-tag" data-tag="${t}">${t}</span>`).join('');
-                card.innerHTML = `
-                    <h3 class="news-title">${escapeHtml(article.title)}</h3>
-                    <div class="news-meta">
-                        <span class="news-source">${escapeHtml(article.source)}</span>
-                        <span class="news-time">${article.time}</span>
-                        <div class="news-tags">${tagsHtml}</div>
-                    </div>
-                    <p class="news-summary">${escapeHtml(article.summary)}</p>
-                `;
-                section.appendChild(card);
-            }
-            newsFeed.appendChild(section);
         }
 
-        noData.style.display = hasContent ? 'none' : 'block';
-    }
+        // 备用内嵌数据（首次部署或数据还未生成时使用）
+        function getFallbackData() {
+            return [
+                {
+                    "date": "2026-05-26",
+                    "articles": [
+                        {"title":"请手动触发GitHub Actions更新资讯","url":"#","source":"系统提示","summary":"首次部署后，请到仓库 Actions 页面手动运行一次 Daily BIM News Update 工作流，即可自动抓取最新资讯。之后每天会自动更新。","tags":["BIM"],"time":"08:00"}
+                    ]
+                }
+            ];
+        }
 
-    tagFilter.addEventListener('click', function(e) {
-        if (!e.target.classList.contains('tag-btn')) return;
-        tagFilter.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
-        e.target.classList.add('active');
-        currentTag = e.target.dataset.tag;
-        renderNews(currentTag);
-    });
+        function formatDate(dateStr) {
+            const date = new Date(dateStr + 'T00:00:00');
+            const today = new Date(); today.setHours(0,0,0,0);
+            const diffDays = Math.floor((today - date) / (1000*60*60*24));
+            const weekdays = ['周日','周一','周二','周三','周四','周五','周六'];
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            let label = `${month}月${day}日 ${weekdays[date.getDay()]}`;
+            if (diffDays === 0) label = '今天 · ' + label;
+            else if (diffDays === 1) label = '昨天 · ' + label;
+            return label;
+        }
 
-    renderNews(currentTag);
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function renderNews(data, filterTag) {
+            newsFeed.innerHTML = '';
+            let hasContent = false;
+
+            for (const day of data) {
+                let articles = day.articles;
+                if (filterTag && filterTag !== 'all') {
+                    articles = articles.filter(a => a.tags && a.tags.includes(filterTag));
+                }
+                if (articles.length === 0) continue;
+                hasContent = true;
+
+                const section = document.createElement('div');
+                section.className = 'day-section';
+                section.innerHTML = `<div class="day-header"><span class="day-date">${formatDate(day.date)}</span><span class="day-count">${articles.length} 条资讯</span></div>`;
+
+                for (const article of articles) {
+                    const card = document.createElement('a');
+                    card.className = 'news-card';
+                    card.href = article.url;
+                    card.target = '_blank';
+                    card.rel = 'noopener noreferrer';
+                    const tagsHtml = (article.tags || []).map(t => `<span class="news-tag" data-tag="${t}">${t}</span>`).join('');
+                    card.innerHTML = `
+                        <h3 class="news-title">${escapeHtml(article.title)}</h3>
+                        <div class="news-meta">
+                            <span class="news-source">${escapeHtml(article.source)}</span>
+                            <span class="news-time">${article.time || ''}</span>
+                            <div class="news-tags">${tagsHtml}</div>
+                        </div>
+                        ${article.summary ? `<p class="news-summary">${escapeHtml(article.summary)}</p>` : ''}
+                    `;
+                    section.appendChild(card);
+                }
+                newsFeed.appendChild(section);
+            }
+
+            noData.style.display = hasContent ? 'none' : 'block';
+        }
+
+        tagFilter.addEventListener('click', function(e) {
+            if (!e.target.classList.contains('tag-btn')) return;
+            tagFilter.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            currentTag = e.target.dataset.tag;
+            renderNews(allData, currentTag);
+        });
+
+        // 初始化
+        async function init() {
+            try {
+                allData = await loadData();
+                loading.style.display = 'none';
+                renderNews(allData, currentTag);
+            } catch (err) {
+                loading.innerHTML = '<p>加载失败，请刷新重试</p>';
+                console.error('加载数据失败:', err);
+            }
+        }
+
+        init();
+    })();
     </script>
 </body>
 </html>
