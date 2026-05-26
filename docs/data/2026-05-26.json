@@ -1,0 +1,101 @@
+{
+  "date": "2026-05-26",
+  "articles": [
+    {
+      "title": "AEC Magazine: Agentic BIM缺失的基础设施——自主设计工作流的未来",
+      "url": "https://aecmag.com/ai/agentic-bims-missing-infrastructure/",
+      "source": "AEC Magazine",
+      "summary": "AEC Magazine深度分析Agentic BIM从建模到自动执行的转变，探讨BIM平台如何管理委托权限。这是BIM行业近年来最具变革性的技术趋势之一。",
+      "tags": ["BIM", "AI"],
+      "time": "09:00"
+    },
+    {
+      "title": "Revit 2027 MCP公开服务器技术预览——AI能力首次进入BIM建模",
+      "url": "https://bimchapters.blogspot.com/",
+      "source": "BIM Chapters",
+      "summary": "Autodesk宣布Revit 2027首次通过Autodesk Assistant引入AI能力，同时发布Revit MCP公开服务器技术预览，可用自然语言操作BIM模型。",
+      "tags": ["BIM", "AI", "软件"],
+      "time": "10:00"
+    },
+    {
+      "title": "英国研究者发起建筑行业AI伦理治理研究项目",
+      "url": "https://www.pbctoday.co.uk/news/digital-construction-news/ethical-governance-artificial-intelligence-use-in-uk-aec-sector/162259/",
+      "source": "PBC Today",
+      "summary": "英国学者发起项目绘制AEC行业AI使用的伦理治理框架，邀请建筑从业者参与调研，推动负责任的AI应用标准。",
+      "tags": ["AI", "政策"],
+      "time": "10:30"
+    },
+    {
+      "title": "全球数字孪生市场2026年预计达494.7亿美元，施工领域应用加速",
+      "url": "https://construction.einnews.com/pr_news/914060543/leveraging-high-precision-component-repair-to-enable-more-accurate-digital-twin-models",
+      "source": "EIN Construction News",
+      "summary": "报告显示全球数字孪生市场2026年将达494.7亿美元，年复合增长率31.1%。采用企业实现非计划停机减少65%、维护成本节约79%。",
+      "tags": ["数字孪生", "智慧建造"],
+      "time": "11:30"
+    },
+    {
+      "title": "学者呼吁将AI与数字孪生技术应用于建筑结构安全监测",
+      "url": "https://guardian.ng/news/don-pushes-for-ai-digital-twins-in-future-structural-safety-systems/",
+      "source": "The Guardian Nigeria",
+      "summary": "研究者提出用数字孪生（建筑物虚拟副本）进行全生命周期结构安全监测，AI能在故障发生前自动触发维护预警。",
+      "tags": ["数字孪生", "AI"],
+      "time": "13:00"
+    },
+    {
+      "title": "BIMcollab统一平台重大更新：文档管理与模型协调合并为一体化平台",
+      "url": "https://helpcenter.bimcollab.com/en/articles/326485-release-notes",
+      "source": "BIMcollab",
+      "summary": "BIMcollab发布重大平台更新，将CDE文档管理和MQA模型协调统一为一体化平台，推出Basic、Advanced和Enterprise三个层级。",
+      "tags": ["BIM", "软件"],
+      "time": "14:00"
+    },
+    {
+      "title": "ISO 19650标准2026重大修订草案发布：从BIM走向统一信息管理",
+      "url": "https://rebim.io/iso-19650-changes-2026/",
+      "source": "reBIM",
+      "summary": "ISO 19650第1/2/3部分草案修订发布公众咨询，将统一为9步信息管理体系。这是BIM标准化以来最重大的变革。",
+      "tags": ["BIM", "政策"],
+      "time": "15:00"
+    },
+    {
+      "title": "Trimble发布2026版Tekla BIM软件：AI与数据驱动工作流连接设计与施工",
+      "url": "https://news.trimble.com/Trimble-Unveils-2026-Tekla-Software-Accelerating-BIM-Engineering-and-Construction-Productivity-Through-Streamlined-Workflows-and-AI",
+      "source": "Trimble",
+      "summary": "Trimble发布2026版Tekla软件，为结构工程和钢构制造管理带来AI数据驱动工作流，加速BIM在工程与施工环节的生产力。",
+      "tags": ["BIM", "软件", "AI"],
+      "time": "15:30"
+    },
+    {
+      "title": "新华社：重庆智慧工地展示数字化智能建造与绿色低碳融合",
+      "url": "http://www.news.cn/english/20260511/347887fc86454ca1a43f5fe718ba3615/c.html",
+      "source": "新华社",
+      "summary": "重庆梁平区无人机制造产业园项目采用智慧工地方案，展示数字化、智能化和绿色低碳在实际施工中的融合应用。",
+      "tags": ["智慧建造"],
+      "time": "16:00"
+    },
+    {
+      "title": "NXT BLD 2026十周年大会：自主设计与代理式BIM成为核心议题",
+      "url": "https://aecmag.com/nxt-bld/11-themes-for-nxt-bld-2026/",
+      "source": "AEC Magazine",
+      "summary": "NXT BLD 2026将首次汇聚全球自主MEP和结构设计领域关键创新者，探讨AI代理在建筑设计中的实际应用前景。",
+      "tags": ["AI", "BIM"],
+      "time": "16:30"
+    },
+    {
+      "title": "Virginia Tech开发机器人+无人机+AI系统实现施工现场持续远程监控",
+      "url": "https://roboticsandautomationnews.com/2026/03/17/robots-and-ai-are-tackling-some-of-the-biggest-challenges-in-construction/99811/",
+      "source": "Robotics & Automation News",
+      "summary": "Virginia Tech与Procon Consulting合作开发「Mario」机器人系统，结合无人机、AI感知和计算机视觉实现工地自动化监控。",
+      "tags": ["智慧建造", "AI"],
+      "time": "17:00"
+    },
+    {
+      "title": "Autodesk Platform Services为Agentic AI开放API，Revit 2027数据模型可编程访问",
+      "url": "https://aps.autodesk.com/blog/building-agentic-ai-whats-new-autodesk-platform-services",
+      "source": "Autodesk APS Blog",
+      "summary": "Autodesk为Agentic AI开放平台服务API，允许通过AEC数据模型API向Revit 2027模型关联安装批次号和制造ID等关键数据。",
+      "tags": ["BIM", "AI", "软件"],
+      "time": "17:30"
+    }
+  ]
+}
